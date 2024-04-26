@@ -1,37 +1,21 @@
 import { useEffect, useState } from 'react'
+import { Fruits } from './components/Fruits.jsx'
 
 function App () {
-  const [fruit, setFruit] = useState()
+  const [fruits, setFruits] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://www.fruityvice.com/api/fruit/family/Rosaceae')
-        console.log(response)
-        if (!response.ok) {
-          throw new Error('No se pudo obtener la lista de frutas')
-        }
-        const data = await response.json()
-        setFruit(data)
-      } catch (error) {
-        console.error('Error al obtener la lista de frutas:', error)
-      }
-    }
-    fetchData()
+    fetch('http://localhost:3000/fruit')
+      .then(res => res.json())
+      .then(json =>
+        setFruits(json)
+      )
   }, [])
 
-  console.log(fruit)
   return (
     <div>
       <h1>Lista de Frutas</h1>
-      {/* <ul>
-        {fruit.map((fruit, index) => (
-          <li key={index}>
-            <strong>{fruit.name}</strong>
-            {/* Puedes mostrar más detalles de la fruta aquí */}
-          {/* </li>
-        ))}
-      </ul> */}
+      <Fruits fruits = {fruits} />
     </div>
   )
 }
