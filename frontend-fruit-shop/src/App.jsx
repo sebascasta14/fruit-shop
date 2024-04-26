@@ -13,7 +13,6 @@ function App () {
   <>
     <BrowserRouter>
       <Header />
-      
       <Routes>
         <Route path="/fruits" element={<Fruits fruits = {fruits} />} />
         <Route path="/login" element={<Login />} />
