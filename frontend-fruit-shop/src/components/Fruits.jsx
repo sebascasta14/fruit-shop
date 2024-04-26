@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import './Fruits.css'
-import { AddToCartIcon, RemoveFromCartIcon } from './Icons.jsx'
+import { AddToCartIcon } from './Icons.jsx'
 
 export function Fruits ({ fruits }) {
   return (
@@ -20,9 +20,7 @@ export function Fruits ({ fruits }) {
               </div>
               <div>
                 <button>
-                  {
-                       <AddToCartIcon />
-                  }
+                  { <AddToCartIcon /> }
                 </button>
               </div>
             </li>
@@ -31,6 +29,5 @@ export function Fruits ({ fruits }) {
       </ul>
     </main>
     </>
-
   )
 }
