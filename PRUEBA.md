@@ -7,9 +7,9 @@ Crea una aplicación en React para una tienda de frutas con las siguientes carac
 • Implementa la composición de componentes para representar cada elemento de la lista. ✓
 • Asegúrate de que la aplicación sea responsive, adaptándose a diferentes tamaños de pantalla. ✓
 • Implementa el enrutamiento para permitir la navegación entre la pantalla de inicio de sesión y la
-interfaz de venta de frutas.
+interfaz de venta de frutas. ✓
 • Utiliza una biblioteca de enrutamiento como React Router o la que prefieras, para gestionar las
-rutas de la aplicación.
+rutas de la aplicación. ✓
 • Simula el consumo de un servicio REST para obtener la información de las frutas (puedes usar
 datos simulados o una API pública). ✓
 • Utiliza el ciclo de vida de los componentes para gestionar la carga de datos.
