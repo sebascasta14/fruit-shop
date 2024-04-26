@@ -1,0 +1,62 @@
+[
+    {
+      "id": "e2d3286f-2d8f-471a-bacb-1e5d28d8727e",
+      "username": "usuario1",
+      "password": "e4c7b0a9bfe87e4f7bc07c1d39eaf9a1",
+      "shoppingcart": {}
+    },
+    {
+      "id": "88368f2a-d5db-47d8-a05f-534fab0a0045",
+      "username": "usuario2",
+      "password": "fb387a293e8cfa97eab72e19ab34f3c6",
+      "shoppingcart": {}
+    },
+    {
+      "id": "5b42fd35-f4fd-4a48-b2c5-c460d0e2d3fc",
+      "username": "usuario3",
+      "password": "aef2c1b56d3d3c5798e01e1c0a23f5b4",
+      "shoppingcart": {}
+    },
+    {
+      "id": "746ef202-94b1-46d3-b1b6-5c0ffcaedc65",
+      "username": "usuario4",
+      "password": "d16dc927e3b3f683517c88cfd76f1bbd",
+      "shoppingcart": {}
+    },
+    {
+      "id": "cf5d3ecf-dcff-4385-8ed9-4c3be41e6bbd",
+      "username": "usuario5",
+      "password": "9ac85f8a8e6c2b384decb78d2a227bf7",
+      "shoppingcart": {}
+    },
+    {
+      "id": "83a32e55-14f4-4397-b9c0-67a95e21f84d",
+      "username": "usuario6",
+      "password": "1e4d23c3b3a5f2f9ab82b749a5483a0a",
+      "shoppingcart": {}
+    },
+    {
+      "id": "c96b3c42-3a76-45ae-946d-ae1a0b736695",
+      "username": "usuario7",
+      "password": "d72d82618d87b0c8578f40870fb23d7b",
+      "shoppingcart": {}
+    },
+    {
+      "id": "4e134b2b-21d7-4565-914b-bf8a4c127d9d",
+      "username": "usuario8",
+      "password": "a1f22d7d7b26c61c2dc58d4d7c2a06b1",
+      "shoppingcart": {}
+    },
+    {
+      "id": "9b5d0a95-8a9c-434f-b02d-3a1e8df37353",
+      "username": "usuario9",
+      "password": "76bbf1e036d67f92bb7226ae44a00de4",
+      "shoppingcart": {}
+    },
+    {
+      "id": "3f6e536f-f4a9-4ab1-93e5-9afdd4d7afbb",
+      "username": "usuario10",
+      "password": "bdf6c4c8f48fd80e5ae47457c9dab855",
+      "shoppingcart": {}
+    }
+  ]
