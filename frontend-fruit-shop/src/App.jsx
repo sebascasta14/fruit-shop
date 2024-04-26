@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react'
 import { Fruits } from './components/Fruits.jsx'
+import { useAPI } from './hooks/API.js'
 
 function App () {
-  const [fruits, setFruits] = useState([])
-
-  useEffect(() => {
-    fetch('http://localhost:3000/fruit')
-      .then(res => res.json())
-      .then(json =>
-        setFruits(json)
-      )
-  }, [])
+  const { fruits } = useAPI()
 
   return (
     <div>
-      <h1>Lista de Frutas</h1>
       <Fruits fruits = {fruits} />
     </div>
   )

@@ -4,7 +4,9 @@ import { AddToCartIcon, RemoveFromCartIcon } from './Icons.jsx'
 
 export function Fruits ({ fruits }) {
   return (
-    <main className='fruits'>
+    <>
+      <h1>Lista de Frutas</h1>
+      <main className='fruits'>
       <ul>
         {fruits.map(fruit => {
           return (
@@ -28,5 +30,7 @@ export function Fruits ({ fruits }) {
         })}
       </ul>
     </main>
+    </>
+
   )
 }
