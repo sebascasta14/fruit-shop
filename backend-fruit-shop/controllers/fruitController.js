@@ -1,49 +1,64 @@
-import { validateFruit, validatePartialFruit } from '../schemas/fruits.js'
-import { FruitModel } from '../models/Fruit.js'
-
+const FruitSchema = require('../schemas/fruits.js')
+require('dotenv').config()
 class FruitController {
-  constructor () {
-    this.fruitModel = FruitModel
+  constructor(){}
+
+  async getAll (req, res){
+      const fruits = await FruitSchema.find()
+      res.send(fruits)
   }
 
-  getAll = async (req, res) => {
-    const fruits = await this.fruitModel.getAll()
-    res.json(fruits)
+  async getByName (req, res){
+      const query = FruitSchema.where({name: req.params.name})
+      const fruit = await query.findOne()
+      if(fruit){
+          res.status(200).send(fruit)
+      }else{
+          res.status(404).send({  
+              "status": "failed",
+              "message": "Not Found"
+          })
+      }
   }
 
-  getByName = async (req, res) => {
-    const { name } = req.params
-    const fruit = await this.fruitModel.getByName({ name })
-    if (fruit) return res.json(fruit)
-    res.status(404).json({ message: 'Fruit not found' })
-  }
+  async create (req, res){
+          let fruit = FruitSchema({
+              name: req.body.name,
+              price: req.body.price,
+              image: req.body.image
+          })
+      
+          fruit.save()
+              .then((result) => {res.status(201).send(result)})
+              .catch((err) => {
+                  if(err.code == 11000){
+                      res.status(409).send({  
+                          "status": "failed",
+                          "message": "El codigo ya ha sido registrado"
+                      })
+                  }else{
+                      res.status(400).send({  
+                          "status": "failed",
+                          "message": "Error almacenando la informacion" + err,
+                      })
+                  }
+              })
+      }
 
-  create = async (req, res) => {
-    const result = validateFruit(req.body)
-    if (!result.success) {
-      return res.status(400).json({ error: JSON.parse(result.error.message) })
-    }
-    const newFruit = await this.fruitModel.create({ input: result.data })
-    res.status(201).json(newFruit)
-  }
-
-  update = async (req, res) => {
-    const result = validatePartialFruit(req.body)
-    if (!result.success) {
-      return res.status(400).json({ error: JSON.parse(result.error.message) })
-    }
-    const { name } = req.params
-    const updatedFruit = await this.fruitModel.update({ name, input: result.data })
-    return res.json(updatedFruit)
-  }
-
-  delete = async (req, res) => {
-    const { name } = req.params
-    const result = await this.fruitModel.delete({ name })
-    if (result === false) {
-      return res.status(404).json({ message: 'Fruit not found' })
-    }
-    return res.json({ message: 'Fruit deleted' })
+  async delete (req, res){
+      const name = req.params.name
+      const {deletedCount} = await FruitSchema.deleteOne({name: name})
+      if (deletedCount === 0) {
+          return res.status(500).json({
+                      "status": "failed",
+                      "message": "Error deleting fruit"
+                  })
+      }
+      return res.status(200).json({
+          "status": "success",
+          "message": "fruit deleted successfully"
+      })
   }
 }
-export default FruitController
+
+module.exports = FruitController

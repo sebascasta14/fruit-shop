@@ -1,20 +1,12 @@
-import z from 'zod'
+const mongoose = require('mongoose')
 
-const fruitSchema = z.object({
-  name: z.string({
-    invalid_type_error: 'Fruit must be a string',
-    required_error: 'Fruit is required.'
-  }),
-  price: z.number().int().min(0),
-  image: z.string().url({
-    message: 'Poster must be a valid URL'
-  })
+const FruitSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  price: Number,
+  image: String
 })
 
-export function validateFruit (input) {
-  return fruitSchema.safeParse(input)
-}
-
-export function validatePartialFruit (input) {
-  return fruitSchema.partial().safeParse(input)
-}
+module.exports = mongoose.model('fruit', FruitSchema)

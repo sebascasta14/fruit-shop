@@ -4,7 +4,7 @@ export function useAPI () {
   const [fruits, setFruits] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/fruit')
+    fetch('https://backend-fruit-shop.vercel.app/fruit')
       .then(res => res.json())
       .then(json =>
         setFruits(json)
