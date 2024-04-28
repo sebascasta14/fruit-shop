@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useSelector } from 'react-redux'
 import { Header } from './components/Header.jsx'
 import { Fruits } from './components/Fruits.jsx'
@@ -20,7 +20,7 @@ function App () {
     }
       <Routes>
         <Route path="/fruits" element={<Fruits fruits = {fruits} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </BrowserRouter>
   </>

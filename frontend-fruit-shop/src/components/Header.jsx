@@ -19,7 +19,7 @@ export function Header () {
   const handleLogout = () => {
     dispatch(logout())
     localStorage.removeItem('sessionData')
-    navigate('/login')
+    navigate('/')
   }
 
   return (
@@ -28,7 +28,7 @@ export function Header () {
         {!isAuthenticated ? null : (
           <>
             <li>
-              <Link to="/login">
+              <Link to="/">
                 Inicio
               </Link>
             </li>
@@ -63,7 +63,7 @@ export function Header () {
             </div>
           </>
         ) : (
-          <Link to='/login'></Link>
+          <Link to='/'></Link>
         )}
       </div>
     </nav>
