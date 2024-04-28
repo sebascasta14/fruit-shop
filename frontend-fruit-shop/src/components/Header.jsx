@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../features/authSlice'
 import { useState } from 'react'
+import './Header.css'
 
 export function Header () {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
@@ -9,7 +10,6 @@ export function Header () {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -23,17 +23,17 @@ export function Header () {
   }
 
   return (
-    <nav className=''>
-      <ul className=''>
+    <nav className='nav-container'>
+      <ul>
         {!isAuthenticated ? null : (
           <>
             <li>
-              <Link to="/login" className="hover:text-blue-500">
+              <Link to="/login">
                 Inicio
               </Link>
             </li>
             <li>
-              <Link to="/fruits" className="hover:text-blue-500">
+              <Link to="/fruits">
               Lista de Frutas
               </Link>
             </li>
@@ -41,19 +41,20 @@ export function Header () {
         )}
       </ul>
       {/* DropDown Usuario Logueado */}
-      <div className=''>
+      <div className='user-dropdown'>
         {isAuthenticated ? (
           <>
-            <div className=''>
+            <div>
             <button
-                onClick={toggleMenu}
+              className='dropdown-toggle' 
+              onClick={toggleMenu}
               />
               {isOpen && (
-              <div className=''>
-                <p className=''>{user.username}</p>
+              <div className='dropdown-menu'>
+                <p className='username'>{user.username}</p>
                 <a
                   onClick={handleLogout}
-                  className=''
+                  className='logout-link'
                 >
                   Logout
                 </a>
@@ -62,7 +63,7 @@ export function Header () {
             </div>
           </>
         ) : (
-          <Link to='/login' className=''></Link>
+          <Link to='/login'></Link>
         )}
       </div>
     </nav>

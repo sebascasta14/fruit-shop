@@ -3,6 +3,8 @@ import { useLoginMutation } from '../features/api/apiSlice'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../features/authSlice'
+import './Login.css'
+
 
 export function Login(){
     const [login] = useLoginMutation();
@@ -11,7 +13,7 @@ export function Login(){
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();        
+        e.preventDefault()
         try {
             setError(false)
             const user = {
@@ -25,43 +27,44 @@ export function Login(){
             }else{
                 localStorage.setItem('sessionData', JSON.stringify(response.data))
                 dispatch(loginSuccess(response.data))
-                .then(() => {
+                .then(
                     navigate('/fruits') // Hacemos la redireccion
-                })
+                )
+                
             }
         } catch (error) {
         }
     }
 
     return (
-        <div className=''>
+        <div className='login-container'>
             {!error ? null : 
                 (<div className=''>
                     Datos Invalidos
             </div>
             )}
-            <form onSubmit={handleSubmit} className=''>
-                <div className=''>
-                    <label className='' htmlFor="username">Username</label>
+            <form onSubmit={handleSubmit} className='login-form'>
+                <div>
+                    <label htmlFor="username">Username</label>
                     <input type="username" 
                             required 
                             name="username" 
-                            placeholder="username" 
-                            className=''/>
+                            placeholder="Username" 
+                    />
                 </div>
-                <div className=''>
-                    <label className='' htmlFor="password">Password</label>
+                <div >
+                    <label htmlFor="password">Password</label>
                     <input type="password" 
                             required 
                             minLength="3"
                             name="password" 
                             placeholder="Password" 
-                            className=''/>
+                    />
                 </div>
-                <div className=''>
+                <div>
                     <button type="submit" className=''>Iniciar Sesion</button>
                 </div>
             </form>
         </div>
-    );
+    )
 }
