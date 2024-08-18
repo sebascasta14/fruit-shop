@@ -20,7 +20,7 @@ Sigue el flujo de trabajo de GitFlow:
 
 #Enlaces de despliegue en Vercel
 Frontend:   https://frontend-fruit-shop.vercel.app/
-Backend:    https://backend-fruit-shop.vercel.app/user o https://backend-fruit-shop.vercel.app/fruits
+Backend:    https://backend-fruit-shop.vercel.app/user o https://backend-fruit-shop.vercel.app/fruit
 
 #USUARIO DE PRUEBA
 Username: prueba
